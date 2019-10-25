@@ -2,6 +2,7 @@ import React from "react";
 import NextApp, { AppContext } from "next/app";
 import Meta from "../components/Meta";
 import Header from "../components/Header";
+import "../styles/styles.styl";
 
 interface IProps {
   pageProps: any;

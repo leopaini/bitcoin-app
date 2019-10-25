@@ -1,16 +1,24 @@
 import React from "react";
-import { NextPage, NextPageContext } from "next";
-import fetch from "isomorphic-unfetch";
+import { IQuote } from "../interfaces";
 
-interface IProps {}
-const PriceBox: NextPage<IProps> = props => (
-  <div className="card text-white bg-primary mb-3">
+interface IProps {
+  price: IQuote;
+}
+const PriceBox: React.SFC<IProps> = ({ price }) => (
+  <div className="card text-white bg-dark mb-3">
     <div className="card-header">Precio del BitCoin</div>
     <div className="card-body">
-      <h4 className="card-title">Primary card title</h4>
-      <p className="card-text">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
+      <h4 className="card-title">Precio Actual: ${price.price.toFixed(2)}</h4>
+      <p className="card-text d-md-flex justify-content-between">
+        <span className="font-weight-bold">
+          Última Hora: {price.percent_change_1h}%
+        </span>
+        <span className="font-weight-bold">
+          Últimas 24 hs: {price.percent_change_24h}%
+        </span>
+        <span className="font-weight-bold">
+          Últimos 7 días: {price.percent_change_7d}%
+        </span>
       </p>
     </div>
   </div>
